@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Player Stats Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div><p class="eyebrow">GAME ANALYTICS / LEARNING PROJECT</p><h1>Player Stats Dashboard</h1><p class="subtitle">Explore player performance across matches.</p></div>
+    <span class="sample-tag">SAMPLE DATA</span>
+  </header>
+  <main>
+    <section class="cards" aria-label="Summary statistics">
+      <article class="stat-card"><p>Total matches</p><strong id="matches-value">—</strong></article>
+      <article class="stat-card"><p>Players tracked</p><strong id="players-value">—</strong></article>
+      <article class="stat-card"><p>Average score</p><strong id="average-value">—</strong></article>
+      <article class="stat-card"><p>Highest score</p><strong id="highest-value">—</strong></article>
+    </section>
+    <section class="toolbar">
+      <label for="player-filter">Highlight player</label>
+      <select id="player-filter"><option value="all">All players</option></select>
+      <p id="status" role="status">Loading analyzed data…</p>
+    </section>
+    <section class="chart-grid">
+      <article class="panel"><div class="panel-heading"><div><h2>Top players</h2><p>Total score across recorded matches</p></div></div><div class="chart-wrap"><canvas id="leaderboard-chart" aria-label="Bar chart ranking players by total score"></canvas></div></article>
+      <article class="panel"><div class="panel-heading"><div><h2>Score trend</h2><p>Average score by match date</p></div></div><div class="chart-wrap"><canvas id="trend-chart" aria-label="Line chart of average score by date"></canvas></div></article>
+    </section>
+    <section class="panel table-panel"><div class="panel-heading"><div><h2>Player breakdown</h2><p>Totals and per-match averages</p></div></div>
+      <div class="table-scroll"><table><thead><tr><th>Rank</th><th>Player</th><th>Matches</th><th>Kills</th><th>Deaths</th><th>Assists</th><th>Total score</th><th>Avg. score</th></tr></thead><tbody id="players-table"></tbody></table></div>
+    </section>
+    <p class="footnote">Learning note: these values are fictional sample data, not official esports statistics. Replace data/matches.csv with a properly licensed public dataset for a real analysis.</p>
+  </main>
+</body>
+</html>
